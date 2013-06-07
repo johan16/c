@@ -1,0 +1,15 @@
+*1*Azucar*700*
+*2*Pan (1 Kilo)*750*
+*3*Aceite*800*
+*4*Sal*450*
+*5*Galletas de Limon*250*
+*6*Mantequilla*800*
+*7*Leche *650*
+*8*Queso*1250*
+*9*Tallarines*800*
+*10*Palmitos*2500*
+*11*Helado*1300*
+*12*Toalla Nova (2 Unidades)*1500*
+*13*Salame*1250*
+*14*Yogurt (Pack de 6)*1800*
+*15*Duraznos Conserveros*950*

@@ -9,7 +9,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <monetary.h>
 #define TAMANO_LINEA 50
 #define NUMERO_REGISTROS 1000
 #define NUMERO_PRODUCTOS 15
@@ -79,9 +78,9 @@ int main(int argc, const char * argv[])
     char locales[1250] = "/Applications/MAMP/htdocs/C/prueba/prueba/LOCALES.txt";
     */
     /*FILES EN PC*/
-    char transacciones[1240]="C:/xampp/htdocs/c/TRANSACCIONES.txt";
-    char productos[1250] = "C:/xampp/htdocs/c/PRODUCTOS.txt";
-    char locales[1250] = "C:/xampp/htdocs/c/LOCALES.txt";
+    char transacciones[1240]="TRANSACCIONES.txt";
+    char productos[1250] = "PRODUCTOS.txt";
+    char locales[1250] = "LOCALES.txt";
     
     // Permite abrir archivo.
     archivo = fopen(transacciones,"r");

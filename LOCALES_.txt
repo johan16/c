@@ -1,0 +1,10 @@
+*1*Renca*
+*2*Maipu*
+*3*Antofagasta*
+*4*Las Condes*
+*5*Lampa*
+*6*Santiago Centro*
+*7*La Florida*
+*8*Concepcion*
+*9*La Reina*
+*10*Estacion Central*
