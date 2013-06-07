@@ -9,6 +9,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <monetary.h>
 #define TAMANO_LINEA 50
 #define NUMERO_REGISTROS 1000
 #define NUMERO_PRODUCTOS 15
@@ -274,6 +275,7 @@ int main(int argc, const char * argv[])
                 
             case 'b':
                 //caso2
+                printf("");
                 int cod_buscado;
                 printf("Buscar Sucursal, Ingrese Cod sucursal \n");
                 scanf("%d", &cod_buscado);
@@ -284,9 +286,8 @@ int main(int argc, const char * argv[])
                 
             case 'c':
                 //caso3
-                int dia_b = 25;
-                int mes_b = 1;
-                int cod_b = 8;//cod local
+                printf("");
+                int dia_b, mes_b, cod_b;//cod local
                 printf("Ingresar dia \n");
                 scanf("%d", &dia_b);
                 
