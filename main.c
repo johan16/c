@@ -300,11 +300,12 @@ int main(int argc, const char * argv[])
                 printf("Ingresar mes: \n");
                 scanf("%d", &mes_b);
                 
-                printf("Ingresar cod local: \n");
-                scanf("%d", &cod_b);
-                printf("\n");
+               
                 
                 if(date_is_valid(dia_b, mes_b)){
+                    printf("Ingresar cod local: \n");
+                    scanf("%d", &cod_b);
+                    printf("\n");
                     //existe local?
                     if(!existe_local(loc, cod_b))
                         transacciones_buscadas(ventas, loc, prods, dia_b, mes_b, cod_b);
@@ -402,9 +403,9 @@ int existe_local(local loc[], int cod_buscado)
 int date_is_valid(int day, int month)
 {
     int valid = TRUE;
-    
+    //AÑO 2012 ERA BICIESTO =), SE CAMBIA A 29
     int month_length[13] =
-    { 0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+    { 0, 31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
     
     if ( month < 1 || month > 12 )
         valid = FALSE;
