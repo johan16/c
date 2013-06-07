@@ -265,13 +265,13 @@ int main(int argc, const char * argv[])
                 //caso1
                 clearScreen();
                 int mes;
-                printf("Ingrese un mes entre 1-12 \n");
+                printf("Ingrese un mes entre 1-12: \n");
                 scanf("%d", &mes);
                 printf("\n");
                 if(mes>0 && mes<13)
                     printf("MES: %s\nTOTAL: $%d\n",  meses[mes-1], ventas_mes(ventas, prods, mes));
                 else
-                    printf("No no no xD, ingresaste un mes fuera de range!!!!%d\n", mes );
+                    printf("No no no xD, ingresaste un mes fuera de range[1-12]!!!!, mes ingresado ->%d\n", mes );
                 printf("\n");
                 system("pause");
                 clearScreen();
@@ -281,7 +281,7 @@ int main(int argc, const char * argv[])
                 //caso2
                 printf("");
                 int cod_buscado;
-                printf("Buscar Sucursal, Ingrese Cod sucursal \n");
+                printf("Ingrese Cod sucursal: \n");
                 scanf("%d", &cod_buscado);
                 printf("\n");
                 buscar_sucursal(loc, cod_buscado);
@@ -294,13 +294,13 @@ int main(int argc, const char * argv[])
                 //caso3
                 printf("");
                 int dia_b, mes_b, cod_b;//cod local
-                printf("Ingresar dia \n");
+                printf("Ingresar dia: \n");
                 scanf("%d", &dia_b);
                 
-                printf("Ingresar mes \n");
+                printf("Ingresar mes: \n");
                 scanf("%d", &mes_b);
                 
-                printf("Ingresar cod local \n");
+                printf("Ingresar cod local: \n");
                 scanf("%d", &cod_b);
                 printf("\n");
                 
@@ -319,8 +319,10 @@ int main(int argc, const char * argv[])
                 break;
                 
             default:
-                clearScreen();
+                
                 printf("Comando invalido\n\n"); 
+                system("pause");
+                clearScreen();
                 break;
         }
     }
@@ -418,7 +420,7 @@ void buscar_sucursal(local loc[], int cod_buscado){
     {
         if(loc[i].id_local == cod_buscado){
             boleano = 1;
-            printf("Sucursal %s\n", loc[i].nombre_local);
+            printf("%s\n", loc[i].nombre_local);
         }
     }
     if(boleano == 0)
