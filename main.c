@@ -9,6 +9,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <ctype.h>
 #define TAMANO_LINEA 50
 #define NUMERO_REGISTROS 1000
 #define NUMERO_PRODUCTOS 15
@@ -269,7 +270,11 @@ int main(int argc, const char * argv[])
                 printf("\n");
                 if(mes>0 && mes<13)
                     printf("MES: %s\nTOTAL: $%d\n",  meses[mes-1], ventas_mes(ventas, prods, mes));
+                else
+                    printf("No no no xD, ingresaste un mes fuera de range!!!!%d\n", mes );
                 printf("\n");
+                system("pause");
+                clearScreen();
                 break;
                 
             case 'b':
@@ -281,6 +286,8 @@ int main(int argc, const char * argv[])
                 printf("\n");
                 buscar_sucursal(loc, cod_buscado);
                 printf("\n");
+                system("pause");
+                clearScreen();
                 break;
                 
             case 'c':
@@ -307,9 +314,13 @@ int main(int argc, const char * argv[])
                     printf("FECHA INVALIDA, INGRESASTE %d-%d\n", dia_b, mes_b);
                     
                 }
+                system("pause");
+                clearScreen();
                 break;
                 
             default:
+                clearScreen();
+                printf("Comando invalido\n\n"); 
                 break;
         }
     }
