@@ -54,6 +54,7 @@ int date_is_valid(int day, int month);
 void transacciones_buscadas(transaccion trans[], local loc[], producto  prod[], int dia,int mes, int id_local);
 int existe_local(local loc[], int cod_buscado);
 void nombre_producto(producto  prod[],int id_prod);
+void clearScreen();
 
 int main(int argc, const char * argv[])
 {
@@ -71,9 +72,15 @@ int main(int argc, const char * argv[])
     char caracter_buscado = '*';
     
     //Se define el nombre del archivo
+    /*FILES EN MAC*//*
     char transacciones[1240]="/Applications/MAMP/htdocs/C/prueba/prueba/TRANSACCIONES.txt";
     char productos[1250] = "/Applications/MAMP/htdocs/C/prueba/prueba/PRODUCTOS.txt";
     char locales[1250] = "/Applications/MAMP/htdocs/C/prueba/prueba/LOCALES.txt";
+    */
+    /*FILES EN PC*/
+    char transacciones[1240]="C:/xampp/htdocs/c/TRANSACCIONES.txt";
+    char productos[1250] = "C:/xampp/htdocs/c/PRODUCTOS.txt";
+    char locales[1250] = "C:/xampp/htdocs/c/LOCALES.txt";
     
     // Permite abrir archivo.
     archivo = fopen(transacciones,"r");
@@ -248,14 +255,14 @@ int main(int argc, const char * argv[])
     
     
     char option;
-    
-    while(((option=menu()))!='x'){
+   
+   while(tolower((option=menu()))!='x'){
         
         switch (option){
                 
             case 'a':
                 //caso1
-                printf("CASE-1\n");
+                clearScreen();
                 int mes;
                 printf("Ingrese un mes entre 1-12 \n");
                 scanf("%d", &mes);
@@ -267,7 +274,6 @@ int main(int argc, const char * argv[])
                 
             case 'b':
                 //caso2
-                printf("CASE-2\n");
                 int cod_buscado;
                 printf("Buscar Sucursal, Ingrese Cod sucursal \n");
                 scanf("%d", &cod_buscado);
@@ -278,7 +284,6 @@ int main(int argc, const char * argv[])
                 
             case 'c':
                 //caso3
-                printf("CASE-3\n");
                 int dia_b = 25;
                 int mes_b = 1;
                 int cod_b = 8;//cod local
@@ -308,30 +313,33 @@ int main(int argc, const char * argv[])
                 break;
         }
     }
+    
     return 0;
   
     
 }
 
 char menu (){
+   
     char option;
     printf("Ingresa una opcion, porfa :\n" );
     printf("===========================\n" );
     
     printf("\nA. Venta Total Mes  :" );
     printf("\nB. Nombre Sucursal :" );
-    printf("\nC. Listado Día :" );
+    printf("\nC. Listado Dia :" );
     printf("\nX. Salir. >");
     
     scanf(" %c", &option);
     while(fgetc(stdin)!='\n');
+    clearScreen(); 
     return option;
 }
 
 void transacciones_buscadas(transaccion trans[], local loc[], producto  prod[], int dia,int mes, int id_local){
-    int valid = TRUE;
+    int valid = TRUE, i;
     
-    for(int i = 0 ; i < NUMERO_REGISTROS ; i++)
+    for( i = 0 ; i < NUMERO_REGISTROS ; i++)
     {
         if(trans[i].dia == dia && trans[i].mes == mes && trans[i].id_local == id_local ){
             printf("FECHA : %d-%d\n", trans[i].dia, trans[i].mes);
@@ -366,9 +374,9 @@ void transacciones_buscadas(transaccion trans[], local loc[], producto  prod[], 
 
 int existe_local(local loc[], int cod_buscado)
 {
-    int valid = TRUE;
+    int valid = TRUE, i;
     
-    for(int i=0; i<10; i++)
+    for( i=0; i<10; i++)
     {
         if(loc[i].id_local == cod_buscado){
             valid = FALSE;
@@ -394,8 +402,8 @@ int date_is_valid(int day, int month)
 }
 
 void buscar_sucursal(local loc[], int cod_buscado){
-    int boleano = 0;
-    for(int i=0; i<10; i++)
+    int boleano = 0, i;
+    for( i=0; i<10; i++)
     {
         if(loc[i].id_local == cod_buscado){
             boleano = 1;
@@ -422,7 +430,8 @@ int ventas_mes(transaccion trans[], producto prod[],int mes){
 }
 
 int precio_prod_buscado( producto  prod[],int id_prod){
-    for(int i = 0 ; i < NUMERO_PRODUCTOS; i++)
+    int i;
+    for(i = 0 ; i < NUMERO_PRODUCTOS; i++)
     {
         if(prod[i].id_producto == id_prod )
             return prod[i].precio_unitario;
@@ -431,7 +440,8 @@ int precio_prod_buscado( producto  prod[],int id_prod){
 }
 
 void nombre_producto(producto  prod[],int id_prod){
-    for(int i = 0 ; i < NUMERO_PRODUCTOS; i++)
+    int i;
+    for( i = 0 ; i < NUMERO_PRODUCTOS; i++)
     {
         if(prod[i].id_producto == id_prod )
             printf("| %s |", prod[i].nombre_producto);
@@ -462,8 +472,8 @@ void substring(char st_salida[], char st_entrada[], int po, int n) {
 int Buscar_String( char cad[], char c, int pos_ini)
 {
     int pos = -1;
-    int len = strlen( cad);
-    for( int i = (pos_ini-1); pos == -1 && i < len; i++){ // si quitas la condición pos == -1
+    int len = strlen( cad), i;
+    for( i = (pos_ini-1); pos == -1 && i < len; i++){ // si quitas la condición pos == -1
         // te devuelve la última posición encontrada (si es que hay más de 1)
         if(*(cad+i) == c)
             pos = i+1;
@@ -471,4 +481,7 @@ int Buscar_String( char cad[], char c, int pos_ini)
     return pos;
 }
 
-
+void clearScreen()
+{
+  system("cls");
+}
